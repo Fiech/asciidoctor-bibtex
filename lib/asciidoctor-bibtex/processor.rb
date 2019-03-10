@@ -172,19 +172,19 @@ module AsciidoctorBibtex
         fc = '['
         lc = ']'
       else
-        cite_text = @citeproc.process id: ref, mode: :citation
+		  cite_text = @citeproc.process id: ref, mode: :citation, locator: cite.pages
         fc = ''
         lc = ''
       end
 
-      if Styles.is_numeric? @style
-        cite_text << "#{page_str(cite)}"
-      elsif cite_data.type == "citenp"
-        cite_text.gsub!(item.year, "#{fc}#{item.year}#{page_str(cite)}#{lc}")
-        cite_text.gsub!(", #{fc}", " #{fc}")
-      else
-        cite_text << page_str(cite)
-      end
+      # if Styles.is_numeric? @style
+      #   cite_text << "#{page_str(cite)}"
+      # elsif cite_data.type == "citenp"
+      #   cite_text.gsub!(item.year, "#{fc}#{item.year}#{page_str(cite)}#{lc}")
+      #   cite_text.gsub!(", #{fc}", " #{fc}")
+      # else
+      #   cite_text << page_str(cite)
+      # end
 
       cite_text.gsub!(",", "&#44;") if @links # replace comma
 
