@@ -41,5 +41,9 @@ module AsciidoctorBibtex
         end
       end
     end
+
+	def clear
+		@cites_used = []
+	end
   end
 end

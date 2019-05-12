@@ -203,5 +203,9 @@ module AsciidoctorBibtex
       end
     end
 
+	def clear_citations
+		@citations.clear
+	end
+
   end
 end
